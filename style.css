@@ -1,31 +1,41 @@
 body{
-    background:radial-gradient(circle, white,grey)   
+    background:radial-gradient(circle, white,grey);
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
 }
 .container{
-margin:padding:100px;
+padding: 100px 0;
 }
 .browser{
-    weight:1000px;
-    height:500px;
-    display:flex;
-    flex-direction: row;
-    position:relative;
+    width: 1000px;
+    height: 400px;
+    position: relative;
+    display: flex;
     justify-content: space-around;
+    box-shadow: 1px 4px 3px 3px rgba(128, 128, 128, 0.5);
     background-color: white;
-    box-shadow: 1px 4px 3px 3px;
+    flex-direction: row;
 }
 aside{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 10%;
+    width: 3%;
     cursor: pointer;
+    background:white;
 }
 .nextside{
     transform: rotate(180deg);
 }
+.photoholder{
+   margin-left: auto;
+   margin-right: auto;
+   width: 9000px;
+   height: 500px;
+}
 img{
-    width: 1000px;
-    height: 500px;
+    width: 200px;
 }
