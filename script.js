@@ -55,6 +55,7 @@ var data8 = {
 
 let currentPhoto = 0;
 let imagesData = [data1, data2, data3, data4, data5, data6, data7, data8];
+
 $('#photo').attr('src', imagesData[currentPhoto].photo);
 $('#photo-title').text(imagesData[currentPhoto].title).title;
 $('#photo-description').text(imagesData[currentPhoto].description);
@@ -70,6 +71,7 @@ function loadTitle(photoNumber) {
 function loadDescription(photoNumber) {
     $('#photo-description').text(imagesData[photoNumber].description);
 }
+
 loadPhoto(currentPhoto);
 
 $('#nextside').click(() => {
@@ -86,4 +88,22 @@ $('#backside').click(() => {
     loadPhoto(currentPhoto);
     loadTitle(currentPhoto);
     loadDescription(currentPhoto);
-})
+});
+imagesData.forEach((item, index) => {
+    $('#thumbnails').append(`
+    <div class="thumbnail" data-index="${index}">
+    <img class="logo" id="imgSmall" src =${item.photo} data-index="${index}">
+    <span class="littletitle">${item.title}</span>
+    </div>`);
+    $('.thumbnail').click((event) => {
+        var indexClicked = $(event.target).attr('data-index');
+        // indexClicked is now a string! if you need it as a number you have to change it
+        // because for example "1" + 1 is going to be "11" and not 2
+        var numberIndex = parseInt(indexClicked);
+        // now numberIndex is a number
+        $('.photoholder img').attr('src', imagesData[indexClicked].photo);
+        $('#photo-title').text(imagesData[indexClicked].title);
+        $('#photo-description').text(imagesData[indexClicked].description);
+        currentPhoto = indexClicked;
+    });
+});
